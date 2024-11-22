@@ -25,7 +25,7 @@ class Media extends Migration
             ],
             'entity_type' => [
                 'type' => 'ENUM',
-                'constraint' => ['user'],
+                'constraint' => ['user','license','card'],
                 'default' => 'user',
             ],
             'created_at' => [
