@@ -32,11 +32,6 @@ class AlterTableUser extends Migration
                 'constraint' => '11',
                 'after' => 'id_card'
             ],
-            'id_avatar' =>[
-                'type' => 'INT',
-                'constraint' => '11',
-                'after' => 'id_license'
-            ],
             'cagnotte' => [
                 'type' => 'INT',
                 'constraint' => '11',
@@ -52,7 +47,6 @@ class AlterTableUser extends Migration
         $this->forge->dropColumn('user', 'phone');
         $this->forge->dropColumn('user', 'id_card');
         $this->forge->dropColumn('user', 'id_license');
-        $this->forge->dropColumn('user', 'id_avatar');
         $this->forge->dropColumn('user', 'cagnotte');
     }
 }

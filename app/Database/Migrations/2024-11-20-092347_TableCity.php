@@ -37,6 +37,8 @@ class TableCity extends Migration
             ]
         ]);
         $this->forge->addKey('id', true);
+        $this->forge->addKey('zip_code');
+        $this->forge->addKey('label');
         $this->forge->createTable('city');
     }
 
