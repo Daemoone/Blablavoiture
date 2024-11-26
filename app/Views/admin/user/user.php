@@ -12,12 +12,11 @@
                             <i class="fa-solid fa-xl fa-toggle-on text-success"></i>
                         </a>
                     <?php
-                    } else { ?>
+                    } else { if(isset($utilisateur)){ ?>
                         <a title="Activer un utilisateur"href="<?= base_url('admin/user/activate/') . $utilisateur['id']; ?>">
                             <i class="fa-solid fa-toggle-off fa-xl text-danger"></i>
                         </a>
-                    <?php
-                    }
+                    <?php }}
                     ?>
                 </div>
                 <div class="card-body">
@@ -35,18 +34,43 @@
                     <!-- Tab panes -->
                     <div class="tab-content border p-3">
                         <div class="tab-pane active" id="profil" role="tabpanel" aria-labelledby="profil-tab" tabindex="0">
-                            <div class="mb-3">
-                                <label for="username" class="form-label">Pseudo</label>
-                                <input type="text" class="form-control" id="username" placeholder="username" value="<?= isset($utilisateur) ? $utilisateur['username'] : ""; ?>" name="username">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Prénom</label>
+                                        <input type="text" class="form-control" id="username" placeholder="username" value="<?= isset($utilisateur) ? $utilisateur['username'] : ""; ?>" name="username">
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="mail" class="form-label">Nom</label>
+                                        <input type="text" class="form-control" id="family_name" placeholder="Nom" name="family_name" value="<?= isset($utilisateur) ? $utilisateur['family_name'] : "" ?>">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label for="mail" class="form-label">E-mail</label>
-                                <input type="text" class="form-control" id="mail" placeholder="mail" value="<?= isset($utilisateur) ? $utilisateur['email'] : "" ?>" <?= isset($utilisateur) ? "readonly" : "" ?> >
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Téléphone</label>
+                                        <input type="text" class="form-control" id="phone" name="phone" placeholder="numéro" value="<?= isset($utilisateur) ? $utilisateur['username'] : ""; ?>" >
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label for="mail" class="form-label">E-mail</label>
+                                        <input type="text" class="form-control" id="mail" placeholder="mail" name="email" value="<?= isset($utilisateur) ? $utilisateur['email'] : "" ?>" <?= isset($utilisateur) ? "readonly" : "" ?> >
+                                    </div>
+                                </div>
                             </div>
+                            <div class="row">
+                                <div class="col">
+
                             <div class="mb-3">
                                 <label for="password" class="form-label">Mot de passe</label>
                                 <input type="password" class="form-control" id="password" placeholder="password" value="" name="password">
                             </div>
+                            </div>
+                                <div class="col">
                             <div class="mb-3">
                                 <label for="id_permission" class="form-label">Rôle</label>
                                 <select class="form-select" id="id_permission" name="id_permission">
@@ -58,6 +82,8 @@
                                     <?php endforeach; ?>
                                 </select>
                             </div>
+                            </div>
+                        </div>
                             <div class="mb-3 d-flex align-items-center">
                                 <label for="image" class="form-label me-2">Avatar</label>
                                 <div id="preview">

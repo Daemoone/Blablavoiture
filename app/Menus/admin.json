@@ -24,5 +24,17 @@
         "icon": "<i class=\"nav-icon fa-solid fa-user-gear\"></i>"
       }
     }
+  },
+  "voitures": {
+    "title": "Voitures",
+    "url": "/admin/car",
+    "icon": "<i class=\"nav-icon fa-solid fa-car\"></i>",
+    "subs": {
+      "car": {
+        "title" : "Voitures",
+        "url": "admin/car",
+        "icon": "<i class=\"nav-icon fa-solid fa-car-rear\"></i>"
+      }
+    }
   }
 }
