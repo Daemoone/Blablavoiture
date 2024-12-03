@@ -8,6 +8,7 @@
             <tr>
                 <th>ID</th>
                 <th>Utilisateur</th>
+                <th>Email</th>
                 <th>Model</th>
                 <th>Color</th>
                 <th>Brand</th>
@@ -18,6 +19,27 @@
             <tbody>
             </tbody>
         </table>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="modalColor">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modifier la voiture</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST" action="<?= base_url('/admin/car/updatecolor'); ?>" id="formModal">
+                <div class="modal-body">
+                    <input type="hidden" name="id" value="">
+                    <input type="text" name="name" class="form-control">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                    <input type="submit" class="btn btn-primary" value="Valider">
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 <script>
@@ -45,6 +67,7 @@
                         return `<a class="link-underline link-underline-opacity-0" href="${baseUrl}admin/user/${row.id_user}">${row.username}</a>`;
                     }
                 },
+                {"data": "email"},
                 {"data": "model"},
                 {"data": "color"},
                 {"data": "brand"},
@@ -52,7 +75,7 @@
                     data : 'id',
                     sortable : false,
                     render : function(data) {
-                        return `<a href="${baseUrl}admin/car/updatecar/${data}"><i class="fa-solid fa-pencil"></i></a>`;
+                        return `<a href="${baseUrl}admin/car/${data}"><i class="fa-solid fa-pencil"></i></a>`;
                     }
                 },
                 {

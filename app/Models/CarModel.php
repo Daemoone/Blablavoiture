@@ -33,6 +33,11 @@ class CarModel extends Model
     }
     public function getCarById($id)
     {
+        $this->select("car.id, u.username, m.name as model, c.name as color, b.name as brand ");
+        $this->join('modelcar m', 'm.id = car.id_modelcar');
+        $this->join('brand b', 'b.id = m.id_brand');
+        $this->join('color c', 'c.id = car.id_color');
+        $this->join('user u', 'u.id = car.id_user');
         return $this->find($id);
     }
 
@@ -61,7 +66,7 @@ class CarModel extends Model
     }
 
     public function getAllCarsByModelAndBrand(){
-        $this->select("car.id, u.username, m.name as model, c.name as color, b.name as brand, car.created_at, car.updated_at, car.deleted_at ");
+        $this->select("car.id, u.username, u.email, m.name as model, c.name as color, b.name as brand, car.created_at, car.updated_at, car.deleted_at ");
         $this->join('modelcar m', 'm.id = car.id_modelcar');
         $this->join('brand b', 'b.id = m.id_brand');
         $this->join('color c', 'c.id = car.id_color');
@@ -72,7 +77,7 @@ class CarModel extends Model
     public function getPaginated($start, $length, $searchValue, $orderColumnName, $orderDirection)
     {
         $builder = $this->builder();
-        $builder->select("car.id, u.username, car.id_user , m.name as model, c.name as color, b.name as brand, car.created_at, car.updated_at, car.deleted_at ");
+        $builder->select("car.id,  u.username, u.email, car.id_user , m.name as model, c.name as color, b.name as brand, car.created_at, car.updated_at, car.deleted_at ");
         $builder->join('modelcar m', 'm.id = car.id_modelcar');
         $builder->join('brand b', 'b.id = m.id_brand');
         $builder->join('color c', 'c.id = car.id_color');
@@ -98,7 +103,7 @@ class CarModel extends Model
     public function getTotal()
     {
         $builder = $this->builder();
-        $builder->select("car.id, u.username, m.name as model, c.name as color, b.name as brand, car.created_at, car.updated_at, car.deleted_at ");
+        $builder->select("car.id, u.username, u.email, m.name as model, c.name as color, b.name as brand, car.created_at, car.updated_at, car.deleted_at ");
         $builder->join('modelcar m', 'm.id = car.id_modelcar');
         $builder->join('brand b', 'b.id = m.id_brand');
         $builder->join('color c', 'c.id = car.id_color');
@@ -109,7 +114,7 @@ class CarModel extends Model
     public function getFiltered($searchValue)
     {
         $builder = $this->builder();
-        $builder->select("car.id, u.username, m.name as model, c.name as color, b.name as brand, car.created_at, car.updated_at, car.deleted_at ");
+        $builder->select("car.id, u.username, u.email, m.name as model, c.name as color, b.name as brand, car.created_at, car.updated_at, car.deleted_at ");
         $builder->join('modelcar m', 'm.id = car.id_modelcar');
         $builder->join('brand b', 'b.id = m.id_brand');
         $builder->join('color c', 'c.id = car.id_color');

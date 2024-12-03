@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ColorModel extends Model
+class ModelCarModel extends Model
 {
-    protected $table            = 'color';
+    protected $table            = 'modelcar';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id', 'name'];
+    protected $allowedFields    = ['id', 'name', 'id_brand'];
 
     // Dates
     protected $useTimestamps = false;
@@ -21,28 +21,32 @@ class ColorModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    public function createColor($data)
+    public function createModelCar($data)
     {
         return $this->insert($data);
     }
 
-    public function updateColor($id, $data) {
+    public function updateModelCar($id, $data)
+    {
         return $this->update($id, $data);
     }
 
-    public function deleteColor($id) {
+    public function deleteModelCar($id)
+    {
         return $this->delete($id);
     }
-    public function getAllColors()
-    {
+
+    public function getAllModelCar(){
         return $this->findAll();
     }
 
-    public function getColorById($id){
+    public function getModelCarById($id)
+    {
         return $this->where('id', $id)->find();
     }
 
-    public function getColorByName($name){
+    public function getModelCarByName($name)
+    {
         return $this->where('name', $name)->find();
     }
 
