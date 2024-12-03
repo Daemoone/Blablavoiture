@@ -44,7 +44,7 @@
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="mail" class="form-label">Nom</label>
-                                        <input type="text" class="form-control" id="family_name" placeholder="Nom" name="family_name" value="<?= isset($utilisateur) ? $utilisateur['family_name'] : "" ?>">
+                                        <input type="text" class="form-control" id="last_name" placeholder="Nom" name="last_name" value="<?= isset($utilisateur) ? $utilisateur['last_name'] : "" ?>">
                                     </div>
                                 </div>
                             </div>
@@ -97,6 +97,37 @@
 
                                 <input class="form-control" type="file" name="profile_image" id="image">
                             </div>
+
+                            <!-- Champs carte d'idendité à faire-->
+                            <div class="mb-3 d-flex align-items-center">
+                                <label for="image" class="form-label me-2">Permis</label>
+                                <div id="preview">
+                                    <?php
+                                    $licenseImageUrl = isset($utilisateur['license_url']) ? base_url($utilisateur['license_url']) : "#";
+                                    ?>
+                                    <img class="img-thumbnail me-2"alt="Aperçu de l'image"
+                                         style="display: <?= isset($utilisateur['license_url']) ? "block" : "none" ?>; max-width: 100px;"
+                                         src="<?= $licenseImageUrl ?>">
+                                </div>
+
+                                <input class="form-control" type="file" name="license_image" id="image">
+                            </div>
+                            <!-- Fin du champ-->
+                            <div class="mb-3 d-flex align-items-center">
+                                <label for="image" class="form-label me-2">Carte d'identité</label>
+                                <div id="preview">
+                                    <?php
+                                    $cardImageUrl = isset($utilisateur['card_url']) ? base_url($utilisateur['card_url']) : "#";
+                                    ?>
+                                    <img class="img-thumbnail me-2"alt="Aperçu de l'image"
+                                         style="display: <?= isset($utilisateur['card_url']) ? "block" : "none" ?>; max-width: 100px;"
+                                         src="<?= $cardImageUrl ?>">
+                                </div>
+
+                                <input class="form-control" type="file" name="card_image" id="image">
+                            </div>
+
+
                         </div>
 
                         <div class="tab-pane" id="onglet" role="tabpanel" aria-labelledby="onglet-tab" tabindex="0">

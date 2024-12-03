@@ -19,6 +19,16 @@ class TableUser extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
             ],
+            'last_name'=>[
+                'type'=>'VARCHAR',
+                'constraint'=>'100',
+                'null'=>true,
+            ],
+            'first_name'=>[
+                'type'=>'VARCHAR',
+                'constraint'=>'100',
+                'null'=>true,
+            ],
             'email' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '100',
@@ -28,14 +38,27 @@ class TableUser extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
+
             'id_permission' => [
                 'type'       => 'INT',
                 'constraint' => 11,
                 'unsigned'   => true,
             ],
+            'phone' => [
+                'type'=>'VARCHAR',
+                'constraint'=> 20,
+                'null'=>false,
+                'after'=>'family_name'
+            ],
+            'cagnotte' => [
+                'type' => 'INT',
+                'constraint' => '11',
+                'after' => 'id_license',
+                'default' => 0
+            ],
             'created_at' => [
                 'type'       => 'DATETIME',
-                'null'       => true,
+                'null'       => false,
             ],
             'updated_at' => [
                 'type'       => 'DATETIME',

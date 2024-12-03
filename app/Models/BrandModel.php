@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ColorModel extends Model
+class BrandModel extends Model
 {
-    protected $table            = 'color';
+    protected $table            = 'brands';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
@@ -21,28 +21,33 @@ class ColorModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    public function createColor($data)
+    public function createBrand($data)
     {
         return $this->insert($data);
     }
 
-    public function updateColor($id, $data) {
+    public function postupdateBrand($id, $data)
+    {
         return $this->update($id, $data);
     }
 
-    public function deleteColor($id) {
+    public function deleteBrand($id)
+    {
         return $this->delete($id);
     }
-    public function getAllColors()
+
+    public function getAllBrands()
     {
         return $this->findAll();
     }
 
-    public function getColorById($id){
+    public function getBrandById($id)
+    {
         return $this->where('id', $id)->find();
     }
 
-    public function getColorByName($name){
+    public function getBrandByName($name)
+    {
         return $this->where('name', $name)->find();
     }
 

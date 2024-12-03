@@ -34,6 +34,16 @@
         "title" : "Voitures",
         "url": "admin/car",
         "icon": "<i class=\"nav-icon fa-solid fa-car-rear\"></i>"
+      },
+      "color": {
+        "title": "Couleurs",
+        "url": "/admin/car/color",
+        "icon": "<i class=\"nav-icon fa-solid fa-palette\"></i>"
+      },
+      "modelcar": {
+        "title" : "Modèles",
+        "url": "admin/car/modelcar",
+        "icon": "<i class=\"nav-icon fa-solid fa-copyright\"></i>"
       }
     }
   }
