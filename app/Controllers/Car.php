@@ -1,27 +1,38 @@
 <?php
 
-namespace App\Controllers\Admin;
+namespace App\Controllers;
 
 use App\Controllers\BaseController;
-
 class Car extends BaseController
 {
     protected $require_auth = true;
-    protected $requiredPermissions = ['administrateur'];
 
-    public function getindex($id = null)
+    public function getindex()
     {
-        $car = model('CarModel')->getAllCars();
-       if ($id == null) {
-        return $this->view('/admin/car/index.php', ['car' => $car], true);
-    } else {
-        $car = model('CarModel')->getCarById($id);
+        $um = model ('UserModel');
+        $utilisateur = $um->getUserById($this->session->user->id);
+        $car = model('CarModel');
+        $car = $car->getCarByUser($utilisateur['id']);
         $modelcar = model('ModelCarModel')->getAllModelCar();
         $color = model('ColorModel')->getAllColors();
-        return $this->view('/admin/car/car', ['car' => $car, 'modelcar' => $modelcar, 'color' => $color],true);
-    }
+        return $this->view('car/index', ['car' => $car, 'utilisateur' => $utilisateur, 'modelcar' => $modelcar, 'color' => $color]);
     }
 
+    public function postcreate()
+    {
+        $utilisateur = $this->session->user->id;
+        $data = $this->request->getPost();
+        $data['id_user'] = $utilisateur;
+        $car = model('CarModel');
+        if ($car->createCar($data)){
+            $this->success("Votre voiture à été crée");
+        } else {
+            $errors = $car->getErrors();
+            foreach ($errors as $error) {
+                $this->error($error);
+            }
+        } $this->redirect('/car');
+    }
     public function postupdate()
     {
         $data = $this->request->getPost();
@@ -33,7 +44,7 @@ class Car extends BaseController
             foreach ($errors as $error) {
                 $this->error($error);
             }
-        } $this->redirect('admin/car');
+        } $this->redirect('/car');
     }
 
     public function postcreatecolor()
@@ -45,7 +56,7 @@ class Car extends BaseController
         } else {
             $this->error('une erreur est survenue');
         }
-        $this->redirect('/admin/car/color');
+        $this->redirect('/car/color');
     }
 
     public function getdeletecolor($id) {
@@ -55,7 +66,7 @@ class Car extends BaseController
         } else {
             $this->error("une erreur est survenue");
         }
-        $this->redirect('/admin/car/color');
+        $this->redirect('/car/color');
     }
 
     public function postupdatecolor()
@@ -66,7 +77,7 @@ class Car extends BaseController
             $this->success('couleur bien modifiée');
         } else {
             $this->error('une erreur est survenue');
-        } $this->redirect('/admin/car/color');
+        } $this->redirect('/car/color');
     }
 
     public function postcreatemodelcar()
@@ -78,7 +89,7 @@ class Car extends BaseController
         } else {
             $this->error('une erreur est survenue');
         }
-        $this->redirect('/admin/car/modelcar');
+        $this->redirect('/car/modelcar');
     }
     public function postupdatemodelcar()
     {
@@ -89,7 +100,7 @@ class Car extends BaseController
         } else {
             $this->error('une erreur est survenue');
         }
-        $this->redirect('/admin/car/modelcar');
+        $this->redirect('/car/modelcar');
     }
 
     public function getdeletemodelcar($id) {
@@ -99,7 +110,7 @@ class Car extends BaseController
         } else {
             $this->error("une erreur est survenue");
         }
-        $this->redirect('/admin/car/modelcar');
+        $this->redirect('/car/modelcar');
     }
 
     public function postsearchdatatable()
@@ -172,16 +183,16 @@ class Car extends BaseController
     public function getcolor($id=null)
     {
         if ($id == null) {
-            return $this->view('/admin/car/color.php', [], true);
+            return $this->view('/car/color.php', [], true);
         } elseif( $id == 'new') {
-            return $this->view('/admin/car/colorupdate.php', [], true);
+            return $this->view('/car/colorupdate.php', [], true);
         } else {
             $color = Model('ColorModel')->getColorById($id);
             if ($color){
-                return $this->view('/admin/car/colorupdate.php', ['color' => $color], true);
+                return $this->view('/car/colorupdate.php', ['color' => $color], true);
             } else {
                 $this->error('une erreur est survenue');
-                return $this->view('/admin/car/color.php', [], true);
+                return $this->view('/car/color.php', [], true);
             }
         }
     }

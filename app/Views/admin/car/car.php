@@ -11,7 +11,7 @@
                 <div class="col">
                     <div class="mb-3">
                         <label for="model" class="form-label">Modèle</label>
-                        <select class="form-select" id="id_model" name="id_model">
+                        <select class="form-select" id="id_model" name="id_modelcar">
                             <option disabled <?= isset($modelcar) ? "selected" : ""; ?>  >Sélectionnez un modèle</option>
                             <?php foreach ($modelcar as $model) : ?>
                                 <option value="<?= $model["id"]; ?>"><?= $model["name"]; ?></option>
@@ -36,11 +36,11 @@
             </div>
 
         <div class="card-footer text-end">
-            <?php if (isset($car)): ?>
+            <?php if (isset($utilisateur) && isset($car)): ?>
                 <input type="hidden" name="id" value="<?= $car['id']; ?>">
             <?php endif; ?>
             <button type="submit" class="btn btn-primary">
-                <?= isset($car) ? "Sauvegarder" : "Enregistrer" ?>
+                <?= isset($utilisateur) && isset($car) ? "Sauvegarder" : "Enregistrer" ?>
             </button>
         </div>
         </form>

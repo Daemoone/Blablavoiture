@@ -84,6 +84,27 @@ class User extends Entity
         // Si aucune image n'est trouvée, retourner une image par défaut
         return $media ? $media['file_path'] : '/assets/img/avatars/1.jpg';
     }
+
+    public function getLicenseImage() : string
+    {
+        $mediaModel = model('MediaModel');
+        $media = $mediaModel->where('entity_id', $this->id)->where('entity_type', 'license')->first();
+        return $media ? $media['file_path'] : '/assets/img/avatars/1.jpg';
+    }
+
+    public function getCardImage() : string
+    {
+        $mediaModel = model('MediaModel');
+        $media = $mediaModel->where('entity_id', $this->id)->where('entity_type', 'card')->first();
+        return $media ? $media['file_path'] : '/assets/img/avatars/1.jpg';
+    }
+
+    public function getCar() :array
+    {
+       $car = model('CarModel');
+       $car = $car->getCarByUser($this->id);
+       return $car ?? [];
+    }
     static public function permission_levels(): array
     {
         return [

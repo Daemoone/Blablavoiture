@@ -75,17 +75,10 @@ class UserModel extends Model
 
     public function getUserById($id)
     {
-        // Sélectionner toutes les colonnes de 'user'
-        $this->select('user.*');
-
-        // Jointure avec la table media pour récupérer les chemins de fichiers pour l'avatar, la licence et la carte
-        $this->join('media as avatar', 'user.id = avatar.entity_id AND avatar.entity_type = "user"', 'left');
-        $this->join('media as license', 'user.id = license.entity_id AND license.entity_type = "license"', 'left');
-        $this->join('media as card', 'user.id = card.entity_id AND card.entity_type = "card"', 'left');
-
-        // Ajouter les colonnes pour chaque type de média
-        $this->select('avatar.file_path as avatar_url, license.file_path as license_url, card.file_path as card_url');
-
+        $this->select('user.*, u.file_path as avatar_url, c.file_path as card_url, l.file_path as license_url');
+        $this->join('media u', 'user.id = u.entity_id AND u.entity_type = "user"', 'left');
+        $this->join('media c', 'user.id = c.entity_id AND c.entity_type = "card"', 'left');
+        $this->join('media l', 'user.id = l.entity_id AND l.entity_type = "license"', 'left');
         return $this->find($id);
     }
 

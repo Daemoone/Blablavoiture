@@ -30,7 +30,7 @@ class Media extends Migration
             ],
             'created_at' => [
                 'type'       => 'DATETIME',
-                'null'       => true,
+                'null'       => false,
             ],
         ]);
         $this->forge->addKey('id', true);
