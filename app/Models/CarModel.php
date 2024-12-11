@@ -10,7 +10,7 @@ class CarModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $useSoftDeletes   = false;
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = ['id', 'id_user', 'id_modelcar', 'id_color','id_brand'];
 
@@ -21,7 +21,7 @@ class CarModel extends Model
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -52,6 +52,11 @@ class CarModel extends Model
     }
 
     public function getCarByUser($id_user){
+        $builder = $this->builder();
+        $builder->select('car.* , b.name as marque, m.name as modelname, c.name as color ');
+        $builder->join('modelcar m', 'm.id = car.id_modelcar');
+        $builder->join('brand b', 'b.id = m.id_brand');
+        $builder->join('color c', 'c.id = car.id_color');
         return $this->where('id_user', $id_user)->findAll();
     }
 

@@ -32,6 +32,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Marque</th>
                         <th>Nom</th>
                         <th>Modif.</th>
                         <th>Supp.</th>
@@ -88,6 +89,7 @@
             },
             "columns": [
                 {"data": "id"},
+                {"data": "brand"},
                 {"data": "name"},
                 {
                     data : 'id',

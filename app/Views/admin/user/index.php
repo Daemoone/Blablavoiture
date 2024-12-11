@@ -6,15 +6,15 @@
     <div class="card-body">
         <table id="tableUsers" class="table table-hover">
             <thead>
-            <tr>
-                <th>ID</th>
-                <th>Avatar</th>
-                <th>Username</th>
-                <th>Mail</th>
-                <th>Rôle</th>
-                <th>Modifier</th>
-                <th>Actif</th>
-            </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Avatar</th>
+                    <th>Username</th>
+                    <th>Mail</th>
+                    <th>Rôle</th>
+                    <th>Modifier</th>
+                    <th>Actif</th>
+                </tr>
             </thead>
             <tbody>
             </tbody>
