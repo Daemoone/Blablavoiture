@@ -1,1 +1,17 @@
-
+{
+  "Accueil": {
+  "title" : "Accueil",
+    "url" : "#",
+    "icon" : "<i class=\"nav-icon fa-solid fa-house\"></i>"
+},
+  "Profil": {
+    "title" : "Profil",
+    "url" : "/user",
+    "icon" : "<i class=\"nav-icon fa-solid fa-user\"></i>"
+  },
+  "Trajet": {
+    "title" : "Trajet",
+    "url" : "/travel",
+    "icon" : "<i class=\"nav-icon fa-solid fa-car\"></i>"
+  }
+}

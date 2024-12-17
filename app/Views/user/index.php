@@ -3,9 +3,9 @@
         <form action="<?=base_url("/user/update")?>" method="POST" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h4 class="card-title">
+                    <h2 class="card-title">
                         Complétez votre profil
-                    </h4>
+                    </h2>
                 </div>
                 <div class="card-body">
                     <!-- Tab panes -->

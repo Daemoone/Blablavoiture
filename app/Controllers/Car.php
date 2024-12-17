@@ -31,7 +31,7 @@ class Car extends BaseController
             foreach ($errors as $error) {
                 $this->error($error);
             }
-        } $this->redirect('/car');
+        } $this->redirect('/index');
     }
     public function postupdate()
     {

@@ -93,6 +93,12 @@ class Travel extends BaseController
        return $this->redirect('/travel');
     }
 
+    public function getresume()
+    {
+        $traveletape = $this->session->user->getTravelEtapeByUser();
+        return $this->view('travel/resume', ['traveletape' => $traveletape]);
+    }
+
     public function getautocompleteCity() {
         $searchValue = $this->request->getGet('q'); // Récupère le terme de recherche envoyé par Select2
         $cityModel = Model("CityModel");
@@ -112,4 +118,5 @@ class Travel extends BaseController
         // Retourne les résultats sous forme JSON pour Select2
         return $this->response->setJSON($results);
     }
+
 }
