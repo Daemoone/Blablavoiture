@@ -92,6 +92,13 @@ class User extends Entity
         return $media ? $media['file_path'] : '/assets/img/avatars/1.jpg';
     }
 
+    public function getUsername() : string
+    {
+        $userModel = model('UserModel');
+        $username = $userModel->where('id', $this->attributes['username'])->first();
+        return $username ? $username['username'] : '';
+    }
+
     public function getCardImage() : string
     {
         $mediaModel = model('MediaModel');
@@ -105,6 +112,14 @@ class User extends Entity
        $car = $car->getCarByUser($this->id);
        return $car ?? [];
     }
+
+    public function getTravelEtapeByUser() :array
+    {
+        $trajet = model ('TravelEtapeModel');
+        $trajet = $trajet->getTravelEtapeByUser($this->id);
+        return $trajet ?? [];
+    }
+
     static public function permission_levels(): array
     {
         return [

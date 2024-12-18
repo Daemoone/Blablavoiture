@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="<?= base_url('/assets/brand/logo-bleu.svg') ?>" class="sidebar-brand-narrow" _width="32" height="32" alt="Gest-Collect" /> Gest-Collec</a>
+        <a class="navbar-brand" href="#"><img src="<?= base_url('/assets/brand/logo-voiture.svg') ?>" class="sidebar-brand-narrow" _width="32" height="32" alt="Gest-Collect" /> Blabla-voiture</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -62,7 +62,13 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <div class="btn btn-primary"> S'inscrire </div>
+                            <a href="<?= base_url('/login')?>">
+                            <div class="btn btn-primary">
+
+                                    Se connecter
+
+                            </div>
+                            </a>
                         </li>
                     </ul>
                 </li>

@@ -1,31 +1,51 @@
 <div class="container">
-    <div class="row">
-        <div class="col text-center">
-                <h1>Bienvenue sur notre site de covoiturage</h1>
+    <div class="row justify-content-center my-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4 text-primary">Bienvenue sur notre site de covoiturage</h1>
+            <p class="lead text-muted">Un moyen simple, rapide et écologique de voyager !</p>
         </div>
     </div>
-</div>
-<?php if (isset ($user)) { ?>
-    <div class="col">
-        <div class="card">
-            <a href="<?= base_url('user') ?>">
-            <button class="btn btn-primary mb-4" type="button">Profil</button>
-            </a>
 
-        <?php $usercar = $user->getCar();
-        if(isset ($usercar)) { ?>
-            <a href="<?= base_url('travel') ?>">
-            <button class="btn btn-primary" type="button">Trajet</button>
-            </a>
-        <?php } ?>
-    </div>
-    </div>
-<?php } else { ?>
-    <div class="col">
-        <div class="card">
-            <a href="<?= base_url('login/register') ?>">
-        <button class="btn btn-primary" type="button">Créez votre compte utilisateur</button>
-        </a>
+    <?php if (isset($user)) { ?>
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="card shadow-lg rounded-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-4">Bienvenue, <?= htmlspecialchars($user->getUsername()) ?></h5>
+
+                        <!-- Profil -->
+                        <a href="<?= base_url('user') ?>" class="btn btn-primary w-100 mb-3">
+                            <i class="fas fa-user me-2"></i> Renseignez votre profil
+                        </a>
+
+                        <?php $usercar = $user->getCar(); ?>
+                        <?php if (isset($usercar)) { ?>
+                            <!-- Véhicule -->
+                            <a href="<?= base_url('car') ?>" class="btn btn-success w-100 mb-3">
+                                <i class="fas fa-car me-2"></i> Renseignez votre véhicule
+                            </a>
+
+                            <!-- Trajet -->
+                            <a href="<?= base_url('travel') ?>" class="btn btn-warning w-100 mb-3">
+                                <i class="fas fa-route me-2"></i> Postez votre trajet
+                            </a>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-<?php } ?>
+    <?php } else { ?>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-lg rounded-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-4">Créez un compte utilisateur</h5>
+                        <a href="<?= base_url('login/register') ?>" class="btn btn-primary w-100">
+                            <i class="fas fa-user-plus me-2"></i> Créez votre compte
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+</div>

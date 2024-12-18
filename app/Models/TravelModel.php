@@ -42,15 +42,6 @@ class TravelModel extends Model
         return $this->delete($id);
     }
 
-    public function getTravelById($id)
-    {
-        $this->select("travel.id, u.username, u.last_name, u.first_name, u.email, u.phone, c.id, c.zip_code, c.label, c.department_name, c.department_number, c.region_name");
-        $this->join('user u', 'u.id = travel.user_id');
-        $this->join('city c', 'c.id = travel.city_id');
-        $this->join('reservation r', 'r.id_travel = travel.id');
-        return $this->find($id);
-    }
-
     public function getTravelByUser($id_user)
     {
         return $this->where('id_user', $id_user)->findAll();
