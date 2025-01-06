@@ -31,6 +31,16 @@ class ViewResume extends Migration
          WHERE e.id_travel = t.id AND e.order = 1 
          LIMIT 1) AS departure_address,
          
+         (SELECT e.id 
+         FROM etape e 
+         WHERE e.id_travel = t.id AND e.order = 1 
+         LIMIT 1) AS id_etape_departure,
+         
+         (SELECT e.id_city_departure 
+         FROM etape e 
+         WHERE e.id_travel = t.id AND e.order = 1 
+         LIMIT 1) AS id_city_departure,
+         
         (SELECT e.date_departure 
          FROM etape e 
          WHERE e.id_travel = t.id AND e.order = 1 
@@ -52,6 +62,16 @@ class ViewResume extends Migration
          WHERE e.id_travel = t.id AND e.order = 2 
          LIMIT 1) AS arrival_address,
          
+         (SELECT e.id_city_departure 
+         FROM etape e 
+         WHERE e.id_travel = t.id AND e.order = 2 
+         LIMIT 1) AS id_city_arrival,
+         
+         (SELECT e.id 
+         FROM etape e 
+         WHERE e.id_travel = t.id AND e.order = 2 
+         LIMIT 1) AS id_etape_arrival,
+         
         (SELECT e.date_departure 
          FROM etape e 
          WHERE e.id_travel = t.id AND e.order = 2 
@@ -69,11 +89,18 @@ class ViewResume extends Migration
 
         -- Jointure avec la table city pour obtenir les labels des villes de départ et d'arrivée
         -- Ville de départ (order = 1)
-        (SELECT ci.label 
+        (SELECT ci.label
          FROM etape e 
          JOIN city ci ON e.id_city_departure = ci.id
          WHERE e.id_travel = t.id AND e.order = 1 
-         LIMIT 1) AS departure_city_label,
+         LIMIT 1) AS departure_city_label,    
+      
+         
+         (SELECT ci.zip_code
+         FROM etape e 
+         JOIN city ci ON e.id_city_departure = ci.id
+         WHERE e.id_travel = t.id AND e.order = 1 
+         LIMIT 1) AS zip_code_departure,
 
         -- Ville d'arrivée (order = 2)
         (SELECT ci.label 
@@ -81,6 +108,12 @@ class ViewResume extends Migration
          JOIN city ci ON e.id_city_departure = ci.id
          WHERE e.id_travel = t.id AND e.order = 2 
          LIMIT 1) AS arrival_city_label,
+
+        (SELECT ci.zip_code 
+         FROM etape e 
+         JOIN city ci ON e.id_city_departure = ci.id
+         WHERE e.id_travel = t.id AND e.order = 2 
+         LIMIT 1) AS zip_code_arrival,
 
         -- Department number pour la ville de départ
         (SELECT ci.department_number 

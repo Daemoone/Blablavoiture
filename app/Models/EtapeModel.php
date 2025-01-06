@@ -32,4 +32,13 @@ class EtapeModel extends Model
         return $this->insert($data);
     }
 
+    public function updateEtape($id, $data)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function deleteEtape($id)
+    {
+        return $this->delete($id);
+    }
 }
