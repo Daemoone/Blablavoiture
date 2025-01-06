@@ -46,4 +46,16 @@ class TravelModel extends Model
     {
         return $this->where('id_user', $id_user)->findAll();
     }
+
+    public function getTravelByIdAndUser($travel_id,$id_user)
+    {
+        $this->select('*',);
+        $this->where('id_user', $id_user);
+        $this->where('id', $travel_id);
+        return $this->first();
+
+        //TO DO jointure table Etape
+    }
+
+
 }
