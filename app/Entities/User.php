@@ -120,6 +120,7 @@ class User extends Entity
         return $trajet ?? [];
     }
 
+
     static public function permission_levels(): array
     {
         return [

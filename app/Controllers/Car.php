@@ -15,7 +15,7 @@ class Car extends BaseController
         $car = $car->getCarByUser($utilisateur['id']);
         $modelcar = model('ModelCarModel')->getAllModelCar();
         $color = model('ColorModel')->getAllColors();
-        return $this->view('car/index', ['car' => $car, 'utilisateur' => $utilisateur, 'modelcar' => $modelcar, 'color' => $color]);
+        return $this->view('user/index', ['car' => $car, 'utilisateur' => $utilisateur, 'modelcar' => $modelcar, 'color' => $color]);
     }
 
     public function postcreate()
@@ -31,7 +31,7 @@ class Car extends BaseController
             foreach ($errors as $error) {
                 $this->error($error);
             }
-        } $this->redirect('/index');
+        } $this->redirect('/user');
     }
     public function postupdate()
     {
