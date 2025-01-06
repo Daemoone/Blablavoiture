@@ -12,6 +12,19 @@
   "Trajet": {
     "title" : "Trajet",
     "url" : "/travel",
-    "icon" : "<i class=\"nav-icon fa-solid fa-car\"></i>"
+    "icon" : "<i class=\"nav-icon fa-solid fa-car\"></i>",
+    "class" : "",
+    "subs": {
+      "travel": {
+        "title": "Poster un trajet",
+        "url": "/travel/new",
+        "icon": "<i class=\"nav-icon fa-solid fa-car\"></i>"
+      },
+      "updatetravel": {
+        "title": "Vos trajets",
+        "url": "/travel",
+        "icon": "<i class=\"nav-icon fa-solid fa-map\"></i>"
+      }
+    }
   }
 }

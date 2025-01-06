@@ -26,8 +26,13 @@
                             </a>
 
                             <!-- Trajet -->
-                            <a href="<?= base_url('travel') ?>" class="btn btn-warning w-100 mb-3">
+                            <a href="<?= base_url('travel/new') ?>" class="btn btn-warning w-100 mb-3">
                                 <i class="fas fa-route me-2"></i> Postez votre trajet
+                            </a>
+
+                            <!-- Consulter Trajet -->
+                            <a href="<?= base_url('travel') ?>" class="btn btn-info w-100 mb-3">
+                                <i class="fa-solid fa-calendar-days"></i> Consultez vos trajet
                             </a>
                         <?php } ?>
                     </div>

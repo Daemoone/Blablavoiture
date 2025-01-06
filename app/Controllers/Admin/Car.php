@@ -12,14 +12,17 @@ class Car extends BaseController
     public function getindex($id = null)
     {
         $car = model('CarModel')->getAllCars();
+
        if ($id == null) {
+
         return $this->view('/admin/car/index.php', ['car' => $car], true);
-    } else {
-        $car = model('CarModel')->getCarById($id);
-        $modelcar = model('ModelCarModel')->getAllModelCar();
-        $color = model('ColorModel')->getAllColors();
-        return $this->view('/admin/car/car', ['car' => $car, 'modelcar' => $modelcar, 'color' => $color],true);
-    }
+
+        } else {
+            $car = model('CarModel')->getCarById($id);
+            $modelcar = model('ModelCarModel')->getAllModelCar();
+            $color = model('ColorModel')->getAllColors();
+            return $this->view('/admin/car/car', ['car' => $car, 'modelcar' => $modelcar, 'color' => $color],true);
+        }
     }
 
     public function postupdate()

@@ -8,10 +8,23 @@ class User extends BaseController
     protected $require_auth = true;
     public function getindex()
     {
+        // Création d'une instance du modèle "UserModel"
         $um = model("UserModel");
+
+        // Récupération des informations de l'utilisateur courant via l'ID de l'utilisateur stocké dans la session
+        // La session est un objet qui contient des données sur l'utilisateur authentifié, ici l'ID de l'utilisateur est récupéré depuis la session.
         $utilisateur = $um->getUserById($this->session->user->id);
+
+        // Création d'une instance du modèle "CarModel"
+        // Cette partie du code récupère les informations relatives à la voiture de l'utilisateur courant, probablement en utilisant l'ID de l'utilisateur récupéré précédemment.
         $car = model('CarModel')->getCarByUser($utilisateur['id']);
-        return $this->view('user/index', ['utilisateur' => $utilisateur, 'car' => $car]);
+
+        $modelcar = model('ModelCarModel')->getAllModelCar();
+        $color = model('ColorModel')->getAllColors();
+
+        // Retourne la vue 'user/index' et passe les variables 'utilisateur' et 'car' à la vue.
+        // La fonction 'view()' est responsable de la génération et du rendu de la vue avec les données correspondantes.
+        return $this->view('user/index', ['utilisateur' => $utilisateur, 'car' => $car, 'modelcar' => $modelcar, 'color' => $color]);
     }
 
     public function postcreate() {
