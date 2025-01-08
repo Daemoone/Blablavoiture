@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\TravelEtapeModel;
 use CodeIgniter\HTTP\ResponseInterface;
 use CodeIgniter\Model;
 
@@ -59,7 +60,9 @@ class Travel extends BaseController
                 return $this->view('travel/index', ['traveletape' => $traveletape]);
 
             } else {
+
                 $car = $this->session->user->getCar();
+
                 if ($id == 'new') {
 
                     return $this->view('travel/new', ['car' => $car]);
@@ -85,7 +88,6 @@ class Travel extends BaseController
             $this->redirect('/login');
         }
     }
-
 
     public function postcreate()
     {
@@ -129,7 +131,7 @@ class Travel extends BaseController
 
                 $this->success('votre trajet à bien été créé');
 
-                $this->redirect('/index');
+                $this->redirect('/travel');
             }
 
         } else {
@@ -205,5 +207,20 @@ class Travel extends BaseController
 
         return $this->redirect('/travel');
 
+    }
+
+    public function getsearch(){
+
+    $all_travels = model('TravelEtapeModel')->getAllTravelsAndEtape();
+
+    return $this->view('travel/search', ['all_travels' => $all_travels]);
+
+    }
+
+    public function getconsult($id)
+    {
+        $travel = model('TravelEtapeModel')->getTravelById($id);
+
+        return $this->view('travel/consult', ['travel' => $travel]);
     }
 }
