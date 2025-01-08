@@ -127,7 +127,11 @@ class ViewResume extends Migration
          FROM etape e 
          JOIN city ci ON e.id_city_departure = ci.id
          WHERE e.id_travel = t.id AND e.order = 2 
-         LIMIT 1) AS arrival_department_number
+         LIMIT 1) AS arrival_department_number,
+
+        -- Ajout des informations sur l'utilisateur
+        u.last_name AS user_last_name,
+        u.username AS user_username
 
     FROM 
         travel t
@@ -136,9 +140,12 @@ class ViewResume extends Migration
     -- Jointure avec la table color pour obtenir le nom de la couleur
     LEFT JOIN color col ON c.id_color = col.id
     -- Jointure avec la table modelcar pour obtenir le nom du modèle
-    LEFT JOIN modelcar mc ON c.id_modelcar = mc.id;
+    LEFT JOIN modelcar mc ON c.id_modelcar = mc.id
+    -- Jointure avec la table user pour récupérer le last_name et le username
+    LEFT JOIN user u ON t.id_user = u.id;
     ");
     }
+
 
     public function down()
     {

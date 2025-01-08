@@ -56,6 +56,4 @@ class TravelModel extends Model
 
         //TO DO jointure table Etape
     }
-
-
 }
