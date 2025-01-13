@@ -9,7 +9,7 @@
                     <!-- Nombre de sièges libres -->
                     <div class="mb-4">
                         <label for="nb_seat" class="form-label">Nombre de sièges libres</label>
-                        <select id="nb_seat" class="form-select" required>
+                        <select id="nb_seat" class="form-select" name="total_seat" required>
                             <option selected>Nombre de sièges</option>
                             <option value="1">1</option>
                             <option value="2">2</option>

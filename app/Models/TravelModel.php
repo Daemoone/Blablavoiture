@@ -10,7 +10,7 @@ class TravelModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $useSoftDeletes   = true;
+    protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = ['id_user','id_car','nb_seat','comment'];
 
@@ -56,4 +56,6 @@ class TravelModel extends Model
 
         //TO DO jointure table Etape
     }
+
+
 }

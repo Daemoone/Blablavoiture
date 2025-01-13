@@ -4,15 +4,15 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class EtapeModel extends Model
+class ReservationModel extends Model
 {
-    protected $table            = 'etape';
+    protected $table            = 'reservation';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_travel','order','id_city_departure','adress_departure','date_departure','nb_seat'];
+    protected $allowedFields    = [];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -27,22 +27,8 @@ class EtapeModel extends Model
     protected $updatedField  = 'updated_at';
     protected $deletedField  = 'deleted_at';
 
-    public function createEtape($data)
+    public function createReservation($data)
     {
-        return $this->insert($data);
-    }
-
-    public function updateEtape($id, $data)
-    {
-        return $this->update($id, $data);
-    }
-
-    public function deleteEtape($id)
-    {
-        return $this->delete($id);
-    }
-
-    public function deleteEtapeByIdTravel($id_travel){
-        return $this->where('id_travel', $id_travel)->delete();
+        return $this->insert([$data]);
     }
 }

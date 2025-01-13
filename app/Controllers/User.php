@@ -136,7 +136,7 @@ class User extends BaseController
                 'entity_type' => 'license',
                 'entity_id'   => $data['id'],   // Utiliser l'ID de l'utilisateur
             ];
-            $uploadResult = upload_files($files['license_image'], 'license', $data['username'], $mediaData, false, ['image/jpeg', 'image/png','image/jpg']);
+            $uploadResult = upload_file($files['license_image'], 'license', $data['username'], $mediaData, false, ['image/jpeg', 'image/png','image/jpg']);
             if (is_array($uploadResult) && $uploadResult['status'] === 'error') {
                 // Afficher un message d'erreur détaillé et rediriger
                 $this->error("Une erreur est survenue lors de l'upload de l'image : " . $uploadResult['message']);

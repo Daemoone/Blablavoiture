@@ -36,7 +36,6 @@
                 } ?>
             </ul>
         </div>
-        <select id="search-item-head" class="form-control me-2" name="item"></select>
 
         <?php if (isset($user)) { ?>
             <div class="navbar-nav d-flex">

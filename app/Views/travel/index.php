@@ -42,8 +42,13 @@
                                 </div>
                                 <div class="col-auto align-items-center">
                                     <a href="<?= base_url('travel/') . $t['travel_id']; ?>">
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#traveldeparture">
+                                        <button type="button" class="btn btn-primary">
                                             Modifier
+                                        </button>
+                                    </a>
+                                    <a href="<?= base_url('travel/delete/') . $t['travel_id']; ?>">
+                                        <button type="button" class="btn btn-danger">
+                                            Supprimer
                                         </button>
                                     </a>
                                 </div>

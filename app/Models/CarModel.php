@@ -10,7 +10,6 @@ class CarModel extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
-    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
     protected $allowedFields    = ['id', 'id_user', 'id_modelcar', 'id_color','id_brand'];
 
@@ -33,7 +32,7 @@ class CarModel extends Model
     }
     public function getCarById($id)
     {
-        $this->select("car.id, u.username, m.name as model, c.name as color, b.name as brand ");
+        $this->select("car.id, car.id_modelcar, u.username, m.name as model, c.name as color, b.name as brand ");
         $this->join('modelcar m', 'm.id = car.id_modelcar');
         $this->join('brand b', 'b.id = m.id_brand');
         $this->join('color c', 'c.id = car.id_color');
@@ -49,6 +48,11 @@ class CarModel extends Model
     public function updateCar($id, $data)
     {
         return $this->update($id, $data);
+    }
+
+    public function getdeleteCar($id)
+    {
+        return $this->delete($id);
     }
 
     public function getCarByUser($id_user){

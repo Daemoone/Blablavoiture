@@ -1,14 +1,15 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h4>Liste des voitures</h4>
+        <a href="<?= base_url('admin/car/new')?>"><i class="fa-solid fa-plus"></i></a>
     </div>
+
     <div class="card-body">
         <table class="table table-sm table-hover" id="tableCar">
             <thead>
             <tr>
                 <th>ID</th>
                 <th>Utilisateur</th>
-                <th>Email</th>
                 <th>Model</th>
                 <th>Color</th>
                 <th>Brand</th>
@@ -67,7 +68,6 @@
                         return `<a class="link-underline link-underline-opacity-0" href="${baseUrl}admin/user/${row.id_user}">${row.username}</a>`;
                     }
                 },
-                {"data": "email"},
                 {"data": "model"},
                 {"data": "color"},
                 {"data": "brand"},
