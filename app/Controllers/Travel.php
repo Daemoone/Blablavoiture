@@ -209,9 +209,27 @@ class Travel extends BaseController
 
     }
 
-    public function getsearch(){
+    public function getdelete($id = null)
+    {
 
-    $all_travels = model('TravelEtapeModel')->getAllTravelsAndEtape();
+
+        if($id) {
+
+            $etape = model('EtapeModel');
+            $etape->deleteEtapeByIdTravel($id);
+            $travel = Model('TravelModel');
+            if($travel->deleteTravel($id)) {
+                $this->success('le trajet à été supprimé');
+            } else {
+                $this->error('une erreur est survenue');
+            }
+            return $this->redirect('/travel');
+        }
+    }
+
+    public function getsearch(){
+        $id_user = $this->session->user->id;
+    $all_travels = model('TravelEtapeModel')->getTravelByOthersUsers($id_user);
 
     return $this->view('travel/search', ['all_travels' => $all_travels]);
 
@@ -219,6 +237,7 @@ class Travel extends BaseController
 
     public function getconsult($id)
     {
+
         $travel = model('TravelEtapeModel')->getTravelById($id);
 
         return $this->view('travel/consult', ['travel' => $travel]);

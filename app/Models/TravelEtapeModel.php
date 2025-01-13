@@ -44,5 +44,10 @@ class TravelEtapeModel extends Model
         return $this->where('travel_id', $id)->find();
     }
 
+    public function getTravelByOthersUsers($id_user){
+        $this->select('*',);
+        $this->where('user_id !=', $id_user);
+        return $this->findAll();
+    }
 
 }

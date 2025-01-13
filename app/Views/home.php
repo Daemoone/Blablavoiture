@@ -30,10 +30,16 @@
                                 <i class="fas fa-route me-2"></i> Postez votre trajet
                             </a>
 
-                            <!-- Consulter Trajet -->
+                            <!-- Consulter ses Trajets -->
                             <a href="<?= base_url('travel') ?>" class="btn btn-info w-100 mb-3">
-                                <i class="fa-solid fa-calendar-days"></i> Consultez vos trajet
+                                <i class="fa-solid fa-calendar-days"></i> Consultez vos trajets
                             </a>
+
+                            <!-- Consulter des Trajets -->
+                            <a href="<?= base_url('travel/search') ?>" class="btn btn-info w-100 mb-3">
+                                <i class="fa-solid fa-database"></i></i> Voir tous les trajets
+                            </a>
+
                         <?php } ?>
                     </div>
                 </div>
@@ -53,4 +59,5 @@
             </div>
         </div>
     <?php } ?>
+
 </div>

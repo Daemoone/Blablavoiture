@@ -18,11 +18,47 @@ class Car extends BaseController
         return $this->view('/admin/car/index.php', ['car' => $car], true);
 
         } else {
-            $car = model('CarModel')->getCarById($id);
-            $modelcar = model('ModelCarModel')->getAllModelCar();
-            $color = model('ColorModel')->getAllColors();
+
+           $car = model('CarModel')->getCarById($id);
+           $modelcar = model('ModelCarModel')->getAllModelCar();
+           $color = model('ColorModel')->getAllColors();
+           $users = model('UserModel')->getAllUsers();
+
+           if ($id == 'new') {
+
+               return $this->view('admin/car/car', ['users' => $users, 'car' => $car, 'modelcar' => $modelcar, 'color' => $color], true);
+
+           } if ($car) {
+               return $this->view('admin/car/car', ['car' => $car, 'users' => $users, 'car' => $car, 'modelcar' => $modelcar, 'color' => $color], true);
+           }
+
             return $this->view('/admin/car/car', ['car' => $car, 'modelcar' => $modelcar, 'color' => $color],true);
         }
+    }
+
+
+    public function postcreate()
+    {
+        $data = $this->request->getPost();
+
+        $car = model('CarModel');
+        if($car->insert($data)){
+            $this->success('la voiture à bien été ajoutée');
+        } else {
+            $this->error('erreur durant l\'ajout de la voiture');
+        }
+        $this->redirect('admin/car');
+    }
+
+    public function getdeletecar($id)
+    {
+        $car = model('CarModel');
+        if ($car->getdeletecar($id)) {
+            $this->success('la voiture à été supprimée de la BDD');
+        } else {
+            $this->error('erreur lors de la suppression');
+        }
+        return $this->redirect('admin/car');
     }
 
     public function postupdate()
