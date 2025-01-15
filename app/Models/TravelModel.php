@@ -53,8 +53,6 @@ class TravelModel extends Model
         $this->where('id_user', $id_user);
         $this->where('id', $travel_id);
         return $this->first();
-
-        //TO DO jointure table Etape
     }
 
 
