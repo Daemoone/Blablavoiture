@@ -24,12 +24,12 @@ class Database extends Config
      *
      * @var array<string, mixed>
      */
-    public array $production = [
+    public array $development = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => '',
-        'password'     => '',
-        'database'     => '',
+        'username'     => 'root',
+        'password'     => 'root',
+        'database'     => 'gest-collec',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
@@ -54,12 +54,12 @@ class Database extends Config
      *
      * @var array<string, mixed>
      */
-    public array $development = [
+    public array $production = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => 'root',
-        'database'     => 'blablavoiture',
+        'username'     => 'vipa0880_bericka',
+        'password'     => 'l&J#iTLATHa8',
+        'database'     => 'vipa0880_projet_ericka',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
