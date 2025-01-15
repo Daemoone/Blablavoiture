@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class BrandModel extends Model
 {
-    protected $table            = 'brands';
+    protected $table            = 'brand';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

@@ -4,7 +4,7 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class TableBrand extends Migration
+class TableJeton extends Migration
 {
     public function up()
     {
@@ -15,18 +15,23 @@ class TableBrand extends Migration
                'unsigned' => true,
                'auto_increment' => true,
            ],
-            'name' => [
-                'type' => 'VARCHAR',
-                'constraint' => 255,
+            'id_reservation' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+            ],
+            'total_jeton' => [
+                'type' => 'DECIMAL'
+            ],
+            'created_at' => [
+                'type' => 'DATETIME',
+                'null' => false,
             ]
         ]);
-
-        $this->forge->addKey('id', true);
-        $this->forge->createTable('brand');
     }
 
     public function down()
     {
-        $this->forge->dropTable('brand');
+        //
     }
 }
