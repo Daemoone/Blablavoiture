@@ -8,11 +8,9 @@ use App\Models\CarModel;
 class CarModelTest extends CIUnitTestCase
 {
 
-    protected $seed = 'App\Database\Seeds\DatabaseSeeder';
-
     use DatabaseTestTrait;
-
     protected $migrate = true;
+    protected $seed = 'App\Database\Seeds\DatabaseSeeder';
     protected function setUp(): void
     {
 
@@ -48,9 +46,9 @@ class CarModelTest extends CIUnitTestCase
     {
         // Données à insérer
         $data = [
-            'id_user'    => 1,
-            'id_modelcar'=> 1,
-            'id_color'   => 1
+            'id_user'    => '1',
+            'id_modelcar'=> '1',
+            'id_color'   => '1'
         ];
 
         // Tester l'insertion d'une nouvelle voiture
@@ -60,11 +58,7 @@ class CarModelTest extends CIUnitTestCase
         $this->assertIsInt($result);
         $this->assertGreaterThan(0, $result);
 
-        // Vérifier si la voiture a bien été insérée dans la base
-        $car = $this->carModel->getCarById($result);
-        $this->assertEquals($data['id_user'], $car['id_user']);
-        $this->assertEquals($data['id_modelcar'], $car['id_modelcar']);
-        $this->assertEquals($data['id_color'], $car['id_color']);
+        $this->seeInDatabase('car', ['id_user' => '1', 'id_modelcar' => '1', 'id_color' => '1']);
     }
 
     public function testUpdateCar()
@@ -87,11 +81,7 @@ class CarModelTest extends CIUnitTestCase
         // Tester la mise à jour de la voiture
         $this->assertTrue($this->carModel->updateCar($carId, $updatedData));
 
-        // Vérifier que les données de la voiture ont bien été mises à jour
-        $car = $this->carModel->getCarById($carId);
-        $this->assertEquals($updatedData['id_user'], $car['id_user']);
-        $this->assertEquals($updatedData['id_modelcar'], $car['id_modelcar']);
-        $this->assertEquals($updatedData['id_color'], $car['id_color']);
+        $this->seeInDatabase('car', ['id_user' => '1', 'id_modelcar' => '1', 'id_color' => '1']);
     }
 
     public function testDeleteCar()
