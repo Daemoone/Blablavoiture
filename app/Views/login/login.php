@@ -70,8 +70,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-1">
-                <a href="<?= base_url(); ?>"><img src="<?= base_url('/assets/brand/logo-bleu.svg'); ?>"></a>
-            </div>
+                <a href="<?= base_url(); ?>"><img src="<?= base_url('/assets/brand/logo-voiture.svg'); ?>" width="200" height="200"></a>
+                </div>
         </div>
         <?php if (isset($error)) { ?>
             <div class="row justify-content-center">
@@ -117,8 +117,7 @@
                         <div class="card-body text-center">
                             <div>
                                 <h2>Rejoignez-nous !</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua.</p>
+                                <p>Venez tester notre site de covoiturage en ligne ! On espère que vous trouverez votre chemin :)</p>
                                 <a class="btn btn-lg btn-outline-light mt-3" href="<?= base_url('/login/register');
                                 ?>" >Créer un
                                     compte</a>

@@ -122,8 +122,6 @@ class User extends BaseController
         return $this->redirect("/admin/user");
     }
 
-
-
     public function postcreate() {
         $data = $this->request->getPost();
         $um = Model("UserModel");

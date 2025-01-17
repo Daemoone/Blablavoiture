@@ -81,7 +81,7 @@ class CarModelTest extends CIUnitTestCase
         // Tester la mise à jour de la voiture
         $this->assertTrue($this->carModel->updateCar($carId, $updatedData));
 
-        $this->seeInDatabase('car', ['id_user' => '1', 'id_modelcar' => '1', 'id_color' => '1']);
+        $this->seeInDatabase('car', ['id_user' => '1', 'id_modelcar' => '2', 'id_color' => '2']);
     }
 
     public function testDeleteCar()
