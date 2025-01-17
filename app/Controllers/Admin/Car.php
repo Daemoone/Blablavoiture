@@ -31,7 +31,6 @@ class Car extends BaseController
            } if ($car) {
                return $this->view('admin/car/car', ['car' => $car, 'users' => $users, 'car' => $car, 'modelcar' => $modelcar, 'color' => $color], true);
            }
-
             return $this->view('/admin/car/car', ['car' => $car, 'modelcar' => $modelcar, 'color' => $color],true);
         }
     }

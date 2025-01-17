@@ -26,13 +26,6 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <!-- CSS-->
-    <link rel="stylesheet" href="<?= base_url('/vendors/simplebar/css/simplebar.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('/css/vendors/simplebar.css') ?>">
-    <link href="<?= base_url('/css/style.css') ?>" rel="stylesheet">
-    <link href="<?= base_url('/vendors/@coreui/chartjs/css/coreui-chartjs.css') ?>" rel="stylesheet">
-    <link rel="stylesheet" href="<?= base_url('/css/toastr.min.css') ?>">
-    <link href="<?= base_url('/css/custom.css') ?>" rel="stylesheet">
 
     <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
@@ -45,6 +38,16 @@
     <script src="<?= base_url('/js/main.js') ?>"></script>
     <script src="<?= base_url('/js/toastr.min.js') ?>"></script>
     <script src="<?= base_url('/js/tinymce/tinymce.min.js') ?>"></script>
+
+    <!-- CSS-->
+    <link rel="stylesheet" href="<?= base_url('/vendors/simplebar/css/simplebar.css') ?>">
+    <link rel="stylesheet" href="<?= base_url('/css/vendors/simplebar.css') ?>">
+    <link href="<?= base_url('/css/style.css') ?>" rel="stylesheet">
+    <link href="<?= base_url('/vendors/@coreui/chartjs/css/coreui-chartjs.css') ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url('/css/toastr.min.css') ?>">
+    <link href="<?= base_url('/css/custom.css') ?>" rel="stylesheet">
+
+
 
     <script>
         const header = document.querySelector('header.header');

@@ -96,7 +96,7 @@ class Travel extends BaseController
         $travel_model = Model('TravelModel');
 
         $travel = [
-            'nb_seat' => $data['nb_seat'],
+            'nb_seat' => $data['total_seat'],
             'id_car' => $data['id_car'],
             'id_user' => $user,
             'comment' => $data['comment'],
@@ -111,7 +111,7 @@ class Travel extends BaseController
                 'id_city_departure' => $data['id_city_departure'],
                 'adress_departure' => $data['adress_departure'],
                 'date_departure' => $data['date_departure'],
-                'nb_seat' => $data['nb_seat'],
+                'nb_seat' => $data['total_seat'],
                 'order' => 1
             ];
             $first_etape = Model('EtapeModel')->createEtape($etape);
@@ -123,7 +123,7 @@ class Travel extends BaseController
                     'id_city_departure' => $data['id_city_arrival'],
                     'date_departure' => $data['date_arrival'],
                     'adress_departure' => $data['adress_arrival'],
-                    'nb_seat' => $data['nb_seat'],
+                    'nb_seat' => $data['total_seat'],
                     'order' => 2
                 ];
 
