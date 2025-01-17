@@ -46,7 +46,7 @@ class User extends BaseController
                 ];
 
                 // Utiliser la fonction upload_files() pour gérer l'upload et les données du média
-                $uploadResult = upload_filess($files, 'avatar', $data['username'], $mediaData);
+                $uploadResult = upload_file($files, 'avatar', $data['username'], $mediaData);
 
                 // Vérifier le résultat de l'upload
                 if (is_array($uploadResult) && $uploadResult['status'] === 'error') {
@@ -61,7 +61,7 @@ class User extends BaseController
                     'entity_id' => $data['id'],   // Utiliser l'ID de l'utilisateur
                 ];
 
-                $uploadResult = upload_filess($files['license_image'], 'license', $data['username'], $mediaData, false, ['image/jpeg', 'image/png', 'image/jpg']);
+                $uploadResult = upload_file($files['license_image'], 'license', $data['username'], $mediaData, false, ['image/jpeg', 'image/png', 'image/jpg']);
                 if (is_array($uploadResult) && $uploadResult['status'] === 'error') {
                     // Afficher un message d'erreur détaillé et rediriger
                     $this->error("Une erreur est survenue lors de l'upload de l'image : " . $uploadResult['message']);
@@ -72,7 +72,7 @@ class User extends BaseController
                         'entity_type' => 'card',
                         'entity_id' => $data['id'],   // Utiliser l'ID de l'utilisateur
                     ];
-                    $uploadResult = upload_filess($files['card_image'], 'card', $data['username'], $mediaData, false, ['image/jpeg', 'image/png', 'image/jpg']);
+                    $uploadResult = upload_file($files['card_image'], 'card', $data['username'], $mediaData, false, ['image/jpeg', 'image/png', 'image/jpg']);
                     if (is_array($uploadResult) && $uploadResult['status'] === 'error') {
                         // Afficher un message d'erreur détaillé et rediriger
                         $this->error("Une erreur est survenue lors de l'upload de l'image : " . $uploadResult['message']);
@@ -113,8 +113,8 @@ class User extends BaseController
                 'entity_type' => 'user',
                 'entity_id'   => $data['id'],   // Utiliser l'ID de l'utilisateur
             ];
-            // Utiliser la fonction upload_files() pour gérer l'upload et enregistrer les données du média
-            $uploadResult = upload_filess($files['profile_image'], 'avatar', $data['username'], $mediaData, false, ['image/jpeg', 'image/png','image/jpg']);
+            // Utiliser la fonction upload_file() pour gérer l'upload et enregistrer les données du média
+            $uploadResult = upload_file($files['profile_image'], 'avatar', $data['username'], $mediaData, true, ['image/jpeg', 'image/png','image/jpg']);
 
             // Vérifier le résultat de l'upload
             if (is_array($uploadResult) && $uploadResult['status'] === 'error') {
@@ -136,7 +136,7 @@ class User extends BaseController
                 'entity_type' => 'license',
                 'entity_id'   => $data['id'],   // Utiliser l'ID de l'utilisateur
             ];
-            $uploadResult = upload_file($files['license_image'], 'license', $data['username'], $mediaData, false, ['image/jpeg', 'image/png','image/jpg']);
+            $uploadResult = upload_file($files['license_image'], 'license', $data['username'], $mediaData, true, ['image/jpeg', 'image/png','image/jpg']);
             if (is_array($uploadResult) && $uploadResult['status'] === 'error') {
                 // Afficher un message d'erreur détaillé et rediriger
                 $this->error("Une erreur est survenue lors de l'upload de l'image : " . $uploadResult['message']);
@@ -156,7 +156,7 @@ class User extends BaseController
                 'entity_type' => 'card',
                 'entity_id'   => $data['id'],   // Utiliser l'ID de l'utilisateur
             ];
-            $uploadResult = upload_files($files['card_image'], 'card', $data['username'], $mediaData, false, ['image/jpeg', 'image/png','image/jpg']);
+            $uploadResult = upload_file($files['card_image'], 'card', $data['username'], $mediaData, true, ['image/jpeg', 'image/png','image/jpg']);
             if (is_array($uploadResult) && $uploadResult['status'] === 'error') {
                 // Afficher un message d'erreur détaillé et rediriger
                 $this->error("Une erreur est survenue lors de l'upload de l'image : " . $uploadResult['message']);
