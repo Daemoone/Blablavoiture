@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
         $this->call('CarModelSeed');
         $this->call('CitySeed');
         $this->call('Color');
+
     }
 }
