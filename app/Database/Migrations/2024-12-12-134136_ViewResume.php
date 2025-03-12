@@ -145,7 +145,7 @@ class ViewResume extends Migration
     ");
     }
 
-
+    
     public function down()
     {
         $this->db->query("DROP VIEW IF EXISTS travel_etape;");
