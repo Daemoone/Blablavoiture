@@ -1,0 +1,40 @@
+{
+  "Accueil": {
+  "title" : "Accueil",
+    "url" : "#",
+    "icon" : "<i class=\"nav-icon fa-solid fa-house\"></i>"
+},
+  "Profil": {
+    "title" : "Profil",
+    "url" : "/user",
+    "icon" : "<i class=\"nav-icon fa-solid fa-user\"></i>"
+  },
+  "Trajet": {
+    "title" : "Trajet",
+    "url" : "/travel",
+    "icon" : "<i class=\"nav-icon fa-solid fa-car\"></i>",
+    "class" : "",
+    "subs": {
+      "travel": {
+        "title": "Poster un trajet",
+        "url": "/travel/new",
+        "icon": "<i class=\"nav-icon fa-solid fa-car\"></i>"
+      },
+      "updatetravel": {
+        "title": "Vos trajets",
+        "url": "/travel",
+        "icon": "<i class=\"nav-icon fa-solid fa-map\"></i>"
+      },
+      "alltravels": {
+        "title": "Consulter tous les trajets",
+        "url": "/travel/search",
+        "icon": "<i class=\"nav-icon fa-solid fa-calendar-days\"></i>"
+      },
+      "alltravelsbyuser": {
+        "title": "Mes réservations",
+        "url": "reservation/user_reservations",
+        "icon": "<i class=\"nav-icon fa-solid fa-calendar-days\"></i>"
+      }
+    }
+  }
+}
