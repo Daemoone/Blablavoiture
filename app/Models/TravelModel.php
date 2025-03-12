@@ -55,8 +55,4 @@ class TravelModel extends Model
         return $this->first();
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> modify
 }

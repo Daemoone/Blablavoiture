@@ -85,19 +85,11 @@ class User extends Entity
         return $media ? $media['file_path'] : '/assets/img/avatars/1.jpg';
     }
 
-<<<<<<< HEAD
-    public function getLicenseImage() : string
-    {
-        $mediaModel = model('MediaModel');
-        $media = $mediaModel->where('entity_id', $this->id)->where('entity_type', 'license')->first();
-        return $media ? $media['file_path'] : '/assets/img/avatars/1.jpg';
-=======
     public function getLicenseImage()
     {
         $mediaModel = model('MediaModel');
         $media = $mediaModel->where('entity_id', $this->id)->where('entity_type', 'license')->first();
         return $media ? $media['file_path'] : null;
->>>>>>> modify
     }
 
     public function getUsername() : string
@@ -107,32 +99,18 @@ class User extends Entity
         return $username ? $username['username'] : '';
     }
 
-<<<<<<< HEAD
-    public function getCardImage() : string
-    {
-        $mediaModel = model('MediaModel');
-        $media = $mediaModel->where('entity_id', $this->id)->where('entity_type', 'card')->first();
-        return $media ? $media['file_path'] : '/assets/img/avatars/1.jpg';
-=======
     public function getCardImage()
     {
         $mediaModel = model('MediaModel');
         $media = $mediaModel->where('entity_id', $this->id)->where('entity_type', 'card')->first();
         return $media ? $media['file_path'] : null;
->>>>>>> modify
     }
 
     public function getCar() :array
     {
-<<<<<<< HEAD
-       $car = model('CarModel');
-       $car = $car->getCarByUser($this->id);
-       return $car ?? [];
-=======
     $car = model('CarModel');
     $car = $car->getCarByUser($this->id);
     return $car ?? [];
->>>>>>> modify
     }
 
     public function getTravelEtapeByUser() :array
@@ -142,15 +120,12 @@ class User extends Entity
         return $trajet ?? [];
     }
 
-<<<<<<< HEAD
-=======
     public function getReservation() : array
     {
         $reservation = model ('ReservationModel');
         $reservation = $reservation->getReservationByUser();
         return $reservation ?? [];
     }
->>>>>>> modify
 
     static public function permission_levels(): array
     {

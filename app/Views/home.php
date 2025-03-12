@@ -15,20 +15,6 @@
 
                         <!-- Profil -->
                         <a href="<?= base_url('user') ?>" class="btn btn-primary w-100 mb-3">
-<<<<<<< HEAD
-                            <i class="fas fa-user me-2"></i> Renseignez votre profil
-                        </a>
-
-                        <?php $usercar = $user->getCar(); ?>
-                        <?php if (isset($usercar)) { ?>
-                            <!-- Véhicule -->
-                            <a href="<?= base_url('car') ?>" class="btn btn-success w-100 mb-3">
-                                <i class="fas fa-car me-2"></i> Renseignez votre véhicule
-                            </a>
-
-                            <!-- Trajet -->
-                            <a href="<?= base_url('travel/new') ?>" class="btn btn-warning w-100 mb-3">
-=======
                             <i class="fas fa-user me-2"></i> Renseignez votre profil et votre véhicule
                         </a>
                         <hr>
@@ -37,7 +23,6 @@
                             
                             <!-- Trajet -->
                             <a href="<?= base_url('travel/new') ?>" class="btn btn-success w-100 mb-3">
->>>>>>> modify
                                 <i class="fas fa-route me-2"></i> Postez votre trajet
                             </a>
 
@@ -50,30 +35,12 @@
                             <a href="<?= base_url('travel/search') ?>" class="btn btn-info w-100 mb-3">
                                 <i class="fa-solid fa-database"></i></i> Voir tous les trajets
                             </a>
-<<<<<<< HEAD
-
-=======
->>>>>>> modify
                         <?php } ?>
                     </div>
                 </div>
             </div>
         </div>
     <?php } else { ?>
-<<<<<<< HEAD
-        <div class="row justify-content-center">
-            <div class="col-md-6 col-lg-4">
-                <div class="card shadow-lg rounded-3">
-                    <div class="card-body text-center">
-                        <h5 class="card-title mb-4">Créez un compte utilisateur</h5>
-                        <a href="<?= base_url('login/register') ?>" class="btn btn-primary w-100">
-                            <i class="fas fa-user-plus me-2"></i> Créez votre compte
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-=======
         <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
@@ -105,7 +72,6 @@
 </div>
 
         
->>>>>>> modify
     <?php } ?>
 
 </div>

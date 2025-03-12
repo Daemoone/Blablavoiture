@@ -12,11 +12,7 @@ class ReservationModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-<<<<<<< HEAD
-    protected $allowedFields    = [];
-=======
     protected $allowedFields    = ['id_user','id_travel','id_etape_departure','id_etape_arrival','nb_seat', 'created_at'];
->>>>>>> modify
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -25,11 +21,7 @@ class ReservationModel extends Model
     protected array $castHandlers = [];
 
     // Dates
-<<<<<<< HEAD
-    protected $useTimestamps = false;
-=======
     protected $useTimestamps = true;
->>>>>>> modify
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -37,9 +29,6 @@ class ReservationModel extends Model
 
     public function createReservation($data)
     {
-<<<<<<< HEAD
-        return $this->insert([$data]);
-=======
         return $this->insert($data);
     }
 
@@ -59,6 +48,5 @@ class ReservationModel extends Model
         $this->where('id_user' , $id_user);
         $this->where('id_travel' , $id_travel);
         return $this->first();
->>>>>>> modify
     }
 }

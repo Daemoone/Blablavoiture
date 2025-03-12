@@ -9,21 +9,12 @@ class TableComments extends Migration
     public function up()
     {
         $this->forge->addField([
-<<<<<<< HEAD
-           'id'=> [
-               'type' => 'INT',
-               'constraint' => 11,
-               'unsigned' => true,
-               'auto_increment' => true,
-           ],
-=======
             'id'=> [
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
->>>>>>> modify
             'id_sender' => [
                 'type' => 'INT',
                 'constraint' => 11,

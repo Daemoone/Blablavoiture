@@ -50,11 +50,7 @@ class CarModel extends Model
         return $this->update($id, $data);
     }
 
-<<<<<<< HEAD
-    public function getdeleteCar($id)
-=======
     public function deleteCar($id)
->>>>>>> modify
     {
         return $this->delete($id);
     }

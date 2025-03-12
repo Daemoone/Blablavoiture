@@ -25,37 +25,23 @@
                     <!-- Tab panes -->
                     <div class="tab-content border p-3">
                         <div class="tab-pane active" id="profil" role="tabpanel" aria-labelledby="profil-tab"
-<<<<<<< HEAD
-                             tabindex="0">
-=======
                             tabindex="0">
->>>>>>> modify
                             <form action="<?= base_url("/user/update") ?>" method="POST" enctype="multipart/form-data">
                             <div class="row">
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Prénom</label>
                                         <input type="text" class="form-control" id="username" placeholder="username"
-<<<<<<< HEAD
-                                               value="<?= isset($utilisateur) ? $utilisateur['username'] : ""; ?>"
-                                               name="username">
-=======
                                             value="<?= isset($utilisateur) ? $utilisateur['username'] : ""; ?>"
                                             name="username">
->>>>>>> modify
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="mail" class="form-label">Nom</label>
                                         <input type="text" class="form-control" id="last_name" placeholder="Nom"
-<<<<<<< HEAD
-                                               name="last_name"
-                                               value="<?= isset($utilisateur) ? $utilisateur['last_name'] : "" ?>">
-=======
                                             name="last_name"
                                             value="<?= isset($utilisateur) ? $utilisateur['last_name'] : "" ?>">
->>>>>>> modify
                                     </div>
                                 </div>
                             </div>
@@ -64,26 +50,16 @@
                                     <div class="mb-3">
                                         <label for="username" class="form-label">Téléphone</label>
                                         <input type="text" class="form-control" id="phone" name="phone"
-<<<<<<< HEAD
-                                               placeholder="numéro"
-                                               value="<?= isset($utilisateur) ? $utilisateur['username'] : ""; ?>">
-=======
                                             placeholder="numéro"
                                             value="<?= isset($utilisateur) ? $utilisateur['username'] : ""; ?>">
->>>>>>> modify
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-3">
                                         <label for="mail" class="form-label">E-mail</label>
                                         <input type="text" class="form-control" id="mail" placeholder="mail"
-<<<<<<< HEAD
-                                               name="email"
-                                               value="<?= isset($utilisateur) ? $utilisateur['email'] : "" ?>" <?= isset($utilisateur) ? "readonly" : "" ?> >
-=======
                                             name="email"
                                             value="<?= isset($utilisateur) ? $utilisateur['email'] : "" ?>" <?= isset($utilisateur) ? "readonly" : "" ?> >
->>>>>>> modify
                                     </div>
                                 </div>
                             </div>
@@ -92,11 +68,7 @@
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Mot de passe</label>
                                         <input type="password" class="form-control" id="password" placeholder="password"
-<<<<<<< HEAD
-                                               value="" name="password">
-=======
                                             value="" name="password">
->>>>>>> modify
                                     </div>
                                 </div>
                             </div>
@@ -107,13 +79,8 @@
                                     $profileImageUrl = isset($utilisateur['avatar_url']) ? base_url($utilisateur['avatar_url']) : "#";
                                     ?>
                                     <img class="img-thumbnail me-2" alt="Aperçu de l'image"
-<<<<<<< HEAD
-                                         style="display: <?= isset($utilisateur['avatar_url']) ? "block" : "none" ?>; max-width: 100px;"
-                                         src="<?= $profileImageUrl ?>">
-=======
                                         style="display: <?= isset($utilisateur['avatar_url']) ? "block" : "none" ?>; max-width: 100px;"
                                         src="<?= $profileImageUrl ?>">
->>>>>>> modify
                                 </div>
 
                                 <input class="form-control" type="file" name="profile_image" id="avatar_image">
@@ -126,13 +93,8 @@
                                     $licenseImageUrl = isset($utilisateur['license_url']) ? base_url($utilisateur['license_url']) : "#";
                                     ?>
                                     <img class="img-thumbnail me-2" alt="Aperçu de l'image"
-<<<<<<< HEAD
-                                         style="display: <?= isset($utilisateur['license_url']) ? "block" : "none" ?>; max-width: 100px;"
-                                         src="<?= $licenseImageUrl ?>">
-=======
                                         style="display: <?= isset($utilisateur['license_url']) ? "block" : "none" ?>; max-width: 100px;"
                                         src="<?= $licenseImageUrl ?>">
->>>>>>> modify
                                 </div>
 
                                 <input class="form-control" type="file" name="license_image" id="license_image">
@@ -145,13 +107,8 @@
                                     $cardImageUrl = isset($utilisateur['card_url']) ? base_url($utilisateur['card_url']) : "#";
                                     ?>
                                     <img class="img-thumbnail me-2" alt="Aperçu de l'image"
-<<<<<<< HEAD
-                                         style="display: <?= isset($utilisateur['card_url']) ? "block" : "none" ?>; max-width: 100px;"
-                                         src="<?= $cardImageUrl ?>">
-=======
                                         style="display: <?= isset($utilisateur['card_url']) ? "block" : "none" ?>; max-width: 100px;"
                                         src="<?= $cardImageUrl ?>">
->>>>>>> modify
                                 </div>
 
                                 <input class="form-control" type="file" name="card_image" id="card_image">
@@ -176,17 +133,10 @@
                                         </div>
                                         <div class="card-body">
                                             <form action="<?= base_url('/car/create'); ?>" method="POST"
-<<<<<<< HEAD
-                                                  enctype="multipart/form-data">
-                                                <?php if (isset($car['id'])) : ?>
-                                                    <input type="hidden" name="id"
-                                                           value="<?= htmlspecialchars($car['id']); ?>">
-=======
                                                 enctype="multipart/form-data">
                                                 <?php if (isset($car['id'])) : ?>
                                                     <input type="hidden" name="id"
                                                         value="<?= htmlspecialchars($car['id']); ?>">
->>>>>>> modify
                                                 <?php endif; ?>
 
                                                 <!-- Modèle du véhicule -->
@@ -194,19 +144,11 @@
                                                     <label for="id_model" class="form-label">Modèle</label>
                                                     <select class="form-select" id="id_model" name="id_modelcar"
                                                             required>
-<<<<<<< HEAD
-                                                        <option disabled <?= isset($modelcar) ? "selected" : ""; ?>>
-                                                            Sélectionnez un modèle
-                                                        </option>
-                                                        <?php foreach ($modelcar as $model) : ?>
-                                                            <option value="<?= $model["id"]; ?>"><?= $model["name"]; ?></option>
-=======
                                                         <option disabled <?= isset($brand) ? "selected" : ""; ?>>
                                                             Sélectionnez un modèle
                                                         </option>
                                                         <?php foreach ($brand as $b) : ?>
                                                             <option value="<?= $b["id"]; ?>"><?= $b["model"] . ' - ' . $b["brand"]; ?></option>
->>>>>>> modify
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
@@ -226,18 +168,12 @@
                                                 </div>
 
                                                 <!-- Bouton d'enregistrement -->
-<<<<<<< HEAD
-                                                <div class="text-center">
-=======
                                                 <div class="text-center mb-3">
->>>>>>> modify
                                                     <button type="submit" class="btn btn-primary px-4 py-2">
                                                         <?= isset($utilisateur) && isset($car) ? "Sauvegarder" : "Enregistrer" ?>
                                                     </button>
                                                 </div>
                                             </form>
-<<<<<<< HEAD
-=======
                                             <div class="card-footer text-center">
                                                 <div class="fw-bold mb-3">Votre/Vos véhicule(s)</div>
                                                 <!-- Table pour afficher les véhicules -->
@@ -269,7 +205,6 @@
                                                     </tbody>
                                                 </table>
                                             </div>
->>>>>>> modify
                                         </div>
                                     </div>
                                 </div>
