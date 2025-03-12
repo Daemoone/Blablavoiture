@@ -24,6 +24,19 @@
         "title": "Vos trajets",
         "url": "/travel",
         "icon": "<i class=\"nav-icon fa-solid fa-map\"></i>"
+<<<<<<< HEAD
+=======
+      },
+      "alltravels": {
+        "title": "Consulter tous les trajets",
+        "url": "/travel/search",
+        "icon": "<i class=\"nav-icon fa-solid fa-calendar-days\"></i>"
+      },
+      "alltravelsbyuser": {
+        "title": "Mes réservations",
+        "url": "reservation/user_reservations",
+        "icon": "<i class=\"nav-icon fa-solid fa-calendar-days\"></i>"
+>>>>>>> modify
       }
     }
   }

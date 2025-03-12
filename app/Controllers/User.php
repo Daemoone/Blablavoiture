@@ -18,6 +18,7 @@ class User extends BaseController
         // Création d'une instance du modèle "CarModel"
         // Cette partie du code récupère les informations relatives à la voiture de l'utilisateur courant, probablement en utilisant l'ID de l'utilisateur récupéré précédemment.
         $car = model('CarModel')->getCarByUser($utilisateur['id']);
+<<<<<<< HEAD
 
         $modelcar = model('ModelCarModel')->getAllModelCar();
         $color = model('ColorModel')->getAllColors();
@@ -25,6 +26,13 @@ class User extends BaseController
         // Retourne la vue 'user/index' et passe les variables 'utilisateur' et 'car' à la vue.
         // La fonction 'view()' est responsable de la génération et du rendu de la vue avec les données correspondantes.
         return $this->view('user/index', ['utilisateur' => $utilisateur, 'car' => $car, 'modelcar' => $modelcar, 'color' => $color]);
+=======
+        $color = model('ColorModel')->getAllColors();
+        $brand = model('ModelCarModel')->getAllModelCarsAndBrand();
+        // Retourne la vue 'user/index' et passe les variables 'utilisateur' et 'car' à la vue.
+        // La fonction 'view()' est responsable de la génération et du rendu de la vue avec les données correspondantes.
+        return $this->view('user/index', ['utilisateur' => $utilisateur, 'car' => $car,'color' => $color, 'brand' => $brand]);
+>>>>>>> modify
     }
 
     public function postcreate() {

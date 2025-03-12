@@ -29,6 +29,10 @@ class Travel extends BaseController
             // Vérifier si l'image du permis de conduire existe
             if (isset($license) && ($license !== null)) {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> modify
                 // Si le permis de conduire existe, récupérer l'image de la carte (probablement une autre pièce justificative)
                 $card = $this->session->user->getCardImage();
 
@@ -42,6 +46,7 @@ class Travel extends BaseController
                     if (isset($car) && ($car !== null)) {
                         // Si tout est valide (permis, carte, voiture), afficher la vue avec la voiture de l'utilisateur
 
+<<<<<<< HEAD
                     } else {
                         $this->redirect('/user');
                     }
@@ -49,6 +54,18 @@ class Travel extends BaseController
                     $this->redirect('/user');
                 }
             } else {
+=======
+                    } else { 
+                        $this->error('vous avez besoin d\'un véhicule');
+                        $this->redirect('/user');
+                    }
+                } else {
+                    $this->error('vous avez besoin d\'une carte d\'identité');
+                    $this->redirect('/user');
+                }
+            } else {
+                $this->error('vous avez besoin d\'un permis');
+>>>>>>> modify
                 $this->redirect('/user');
             }
 
@@ -229,6 +246,7 @@ class Travel extends BaseController
 
     public function getsearch(){
         $id_user = $this->session->user->id;
+<<<<<<< HEAD
     $all_travels = model('TravelEtapeModel')->getTravelByOthersUsers($id_user);
 
     return $this->view('travel/search', ['all_travels' => $all_travels]);
@@ -241,5 +259,20 @@ class Travel extends BaseController
         $travel = model('TravelEtapeModel')->getTravelById($id);
 
         return $this->view('travel/consult', ['travel' => $travel]);
+=======
+        $all_travels = model('TravelEtapeModel')->getTravelByOthersUsers($id_user);
+
+        return $this->view('travel/search', ['all_travels' => $all_travels]);
+
+    }
+
+    public function getconsult($id_travel)
+    {
+        $id_user = $this->session->user->id;
+        $travel = model('TravelEtapeModel')->getTravelById($id_travel);
+        $reservation = model('ReservationModel')->getReservationByUser($id_user, $id_travel);
+
+        return $this->view('travel/consult', ['travel' => $travel, 'reservation' => $reservation]);
+>>>>>>> modify
     }
 }

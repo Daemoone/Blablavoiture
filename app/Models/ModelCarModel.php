@@ -40,6 +40,15 @@ class ModelCarModel extends Model
         return $this->findAll();
     }
 
+<<<<<<< HEAD
+=======
+    public function getAllModelCarsAndBrand(){
+    $this->select("modelcar.id, modelcar.name as model, b.name as brand");
+    $this->join('brand b', 'modelcar.id_brand = b.id');
+    return $this->findAll();
+    }
+
+>>>>>>> modify
     public function getModelCarById($id)
     {
         return $this->where('id', $id)->find();
@@ -50,6 +59,10 @@ class ModelCarModel extends Model
         return $this->where('name', $name)->find();
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> modify
     public function getPaginated($start, $length, $searchValue, $orderColumnName, $orderDirection)
     {
         $builder = $this->builder();

@@ -60,6 +60,7 @@
         </div>
     <?php endforeach; ?>
 
+<<<<<<< HEAD
 <?php } else { ?>
     <div class="container">
         <div class="row">
@@ -67,6 +68,27 @@
                 <div class="card">
                     <h2>Vous n'avez pas encore proposé de trajet</h2>
                 </div>
+=======
+<?php } if(empty($traveletape)) { ?>
+    <div class="container">
+        <div class="row">
+            <div class="col mt-4 mb-4">
+                <div class="card p-4 text-center">
+                    <h2>Vous n'avez pas encore proposé de trajet</h2>
+                    <div>
+                    
+                    <a href="<?= base_url('travel/new'); ?>">
+                        <button type="button" class="btn btn-info text-light">
+                            <i class="fa-solid fa-car"></i>
+                            Poster un trajet
+                        </button>
+                    </a>
+                </div>
+
+                </div>
+
+                
+>>>>>>> modify
             </div>
         </div>
     </div>

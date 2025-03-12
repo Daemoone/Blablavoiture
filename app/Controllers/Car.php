@@ -3,6 +3,11 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> modify
 class Car extends BaseController
 {
     protected $require_auth = true;
@@ -47,6 +52,18 @@ class Car extends BaseController
         } $this->redirect('/car');
     }
 
+<<<<<<< HEAD
+=======
+    public function getdeletecar($id){
+        $car = model('CarModel');
+        if ($car->deletecar($id)){
+            $this->success("votre véhicule à été supprimé");
+        } else {
+            $this->error("une erreur est survenue durant la suppression");
+        } $this->redirect('/user');
+    }
+
+>>>>>>> modify
     public function postcreatecolor()
     {
         $data = $this->request->getPost();

@@ -12,7 +12,11 @@ class ReservationModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
+<<<<<<< HEAD
     protected $allowedFields    = [];
+=======
+    protected $allowedFields    = ['id_user','id_travel','id_etape_departure','id_etape_arrival','nb_seat', 'created_at'];
+>>>>>>> modify
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -21,7 +25,11 @@ class ReservationModel extends Model
     protected array $castHandlers = [];
 
     // Dates
+<<<<<<< HEAD
     protected $useTimestamps = false;
+=======
+    protected $useTimestamps = true;
+>>>>>>> modify
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -29,6 +37,28 @@ class ReservationModel extends Model
 
     public function createReservation($data)
     {
+<<<<<<< HEAD
         return $this->insert([$data]);
+=======
+        return $this->insert($data);
+    }
+
+    public function deleteReservation($id){
+        return $this->delete($id);
+    }
+
+    public function getAllReservationsByUser($id_user){
+        $this->select('reservation.*, t.*, e.adress_departure');
+        $this->join('travel t', 't.id = reservation.id_travel');
+        $this->where('reservation.id_user' , $id_user);
+        return $this->findAll();
+    }
+
+    public function getReservationByUser ($id_user, $id_travel){
+        $this->select('COUNT(*) as total');
+        $this->where('id_user' , $id_user);
+        $this->where('id_travel' , $id_travel);
+        return $this->first();
+>>>>>>> modify
     }
 }

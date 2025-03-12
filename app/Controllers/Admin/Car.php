@@ -13,12 +13,17 @@ class Car extends BaseController
     {
         $car = model('CarModel')->getAllCars();
 
+<<<<<<< HEAD
        if ($id == null) {
+=======
+        if ($id == null) {
+>>>>>>> modify
 
         return $this->view('/admin/car/index.php', ['car' => $car], true);
 
         } else {
 
+<<<<<<< HEAD
            $car = model('CarModel')->getCarById($id);
            $modelcar = model('ModelCarModel')->getAllModelCar();
            $color = model('ColorModel')->getAllColors();
@@ -31,6 +36,20 @@ class Car extends BaseController
            } if ($car) {
                return $this->view('admin/car/car', ['car' => $car, 'users' => $users, 'car' => $car, 'modelcar' => $modelcar, 'color' => $color], true);
            }
+=======
+        $car = model('CarModel')->getCarById($id);
+        $modelcar = model('ModelCarModel')->getAllModelCar();
+        $color = model('ColorModel')->getAllColors();
+        $users = model('UserModel')->getAllUsers();
+
+        if ($id == 'new') {
+
+            return $this->view('admin/car/car', ['users' => $users, 'car' => $car, 'modelcar' => $modelcar, 'color' => $color], true);
+
+            } if ($car) {
+            return $this->view('admin/car/car', ['car' => $car, 'users' => $users, 'car' => $car, 'modelcar' => $modelcar, 'color' => $color], true);
+            }
+>>>>>>> modify
             return $this->view('/admin/car/car', ['car' => $car, 'modelcar' => $modelcar, 'color' => $color],true);
         }
     }
