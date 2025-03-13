@@ -36,12 +36,18 @@ class ReservationModel extends Model
         return $this->delete($id);
     }
 
-    public function getAllReservationsByUser($id_user){
-        $this->select('reservation.*, t.*, e.adress_departure');
-        $this->join('travel t', 't.id = reservation.id_travel');
-        $this->where('reservation.id_user' , $id_user);
+    public function getAllReservationsByUser($id_user)
+    {
+        $this->select('reservation.id as id, t.id as travel_id, 
+                GROUP_CONCAT(COALESCE(e.adress_departure, "NULL")) as adresses, 
+                GROUP_CONCAT(COALESCE(e.date_departure, "NULL")) as dates');
+        $this->join('user u', 'u.id = id_user', 'left');
+        $this->join('travel t', 't.id = id_travel', 'left');
+        $this->join('etape e', 'e.id_travel = t.id', 'left');
+        $this->where('u.id', $id_user);
         return $this->findAll();
     }
+
 
     public function getReservationByUser ($id_user, $id_travel){
         $this->select('COUNT(*) as total');

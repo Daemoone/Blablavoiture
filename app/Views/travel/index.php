@@ -60,15 +60,6 @@
         </div>
     <?php endforeach; ?>
 
-<<<<<<< HEAD
-<?php } else { ?>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <h2>Vous n'avez pas encore proposé de trajet</h2>
-                </div>
-=======
 <?php } if(empty($traveletape)) { ?>
     <div class="container">
         <div class="row">
@@ -88,7 +79,6 @@
                 </div>
 
                 
->>>>>>> modify
             </div>
         </div>
     </div>

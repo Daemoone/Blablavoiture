@@ -10,9 +10,20 @@ class Reservation extends BaseController
     public function getindex($id = null)
     {
         $utilisateur = $this->session->user->id;
-        $reservation = model("ReservationModel")->getAllReservation();
-        
-        return $this->view('reservation/index', ['reservation' => $reservation, 'user' => $utilisateur]);
+        $reservations = model('ReservationModel')->getAllReservationsByUser($utilisateur);
+        if($reservations[0]['id'] != null) {
+        foreach ($reservations as $index => $reservation) :
+            $adresses = explode(',', $reservation['adresses']);
+            $dates = explode(',', $reservation['dates']);
+            foreach ($dates as $i => $date) {
+                $dates[$i]=strtotime($date);
+            }
+            $reservations[$index]['adresses'] = $adresses;
+            $reservations[$index]['dates'] = $dates;
+        endforeach; } else {
+            $reservations = [];
+        }
+        return $this->view('reservation/index', ['reservations' => $reservations , 'user' => $utilisateur]);
     }
 
     public function postcreate(){
@@ -36,11 +47,5 @@ class Reservation extends BaseController
             $this->error('une erreur est survenue');
         }
         $this->redirect('/reservation');
-    }
-
-    public function getuser_reservations(){
-        $utilisateur = $this->session->user->id;
-        $reservations = model('ReservationModel')->getAllReservationsByUser($utilisateur);
-        return $this->view('reservation/user_reservations', ['reservations' => $reservations]);
     }
 }
