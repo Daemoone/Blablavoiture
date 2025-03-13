@@ -50,18 +50,15 @@
             </div>
         </div>
     <?php endforeach; ?>
-<<<<<<< HEAD
-=======
-    <?php if(empty($all_travels)){ ?>
+    <?php if (empty($all_travels)) { ?>
         <div class="container">
-        <div class="row">
-            <div class="col mt-4 mb-4">
-                <div class="card p-4 text-center">
-                    <h2>Aucun trajet n'a été posté sur le site</h2>
+            <div class="row">
+                <div class="col mt-4 mb-4">
+                    <div class="card p-4 text-center">
+                        <h2>Aucun trajet n'a été posté sur le site</h2>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     <?php } ?>
->>>>>>> modify
 <?php } ?>
